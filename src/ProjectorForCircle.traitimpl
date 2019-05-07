@@ -1,8 +1,0 @@
-//impl Projector for Circle
-Point SELF::calc_projection(const Point &p) const
-{
-	auto v0 = p - center();
-	auto v1 = v0 - axis_direction().value() * Vector::dot(v0, axis_direction().value());
-	return center() + v1;
-}
-

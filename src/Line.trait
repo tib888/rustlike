@@ -3,7 +3,7 @@ public:
 	const Point &point() const;
 	const Direction &direction() const;
 
-
+	//#include "Projector.trait"
 	//impl Projector for Line:
 	Point calc_projection(const Point &p) const
 	{

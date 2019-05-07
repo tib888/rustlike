@@ -45,7 +45,6 @@ public:
 	}
 
 #include "Circle.trait"
-#include "Projector.trait"
 };
 
 //impl Circle for Circle3d
@@ -63,7 +62,3 @@ const Direction &Circle3d::axis_direction() const
 {
 	return _axis_direction;
 }
-
-#define SELF Circle3d 
-#include "ProjectorForCircle.traitimpl"
-#undef SELF

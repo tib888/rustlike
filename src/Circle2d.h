@@ -40,7 +40,6 @@ public:
 	}
 
 #include "Circle.trait"
-#include "Projector.trait"
 };
 
 //impl Circle for Circle2d
@@ -58,7 +57,3 @@ const Direction &Circle2d::axis_direction() const
 {
 	return Direction::k_unit;
 }
-
-#define SELF Circle2d 
-#include "ProjectorForCircle.traitimpl"
-#undef SELF
