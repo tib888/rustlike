@@ -1,0 +1,4 @@
+/target/
+/.vs/
+/src/*.vcxproj.user
+
