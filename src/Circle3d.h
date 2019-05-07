@@ -4,7 +4,7 @@
 //use crate::Circle
 #include "Circle.h"
 
-class Circle3d
+class Circle3d 
 {
 	//struct Circle3d:
 private:
@@ -59,23 +59,18 @@ public:
 	{
 		return _axis_direction;
 	}
-};
 
-TRAITIMPL(Circle)
-{
-	template<>
+public:
 	static Length radius(const Circle3d &self)
 	{
 		return self.radius();
 	}
 
-	template<>
 	static const Point &center(const Circle3d &self)
 	{
 		return self.center();
 	}
 
-	template<>
 	static const Direction &axis_direction(const Circle3d &self)
 	{
 		return self.axis_direction();

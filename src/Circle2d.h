@@ -5,7 +5,7 @@
 //use crate::Circle
 #include "Circle.h"
 
-class Circle2d
+class Circle2d 
 {
 	//struct Circle2d:
 private:
@@ -51,47 +51,19 @@ public:
 	{
 		return Direction::k_unit;
 	}
-};
 
-//impl Circle for Circle2d
-//template<>
-//class Circle<Circle2d>
-//{
-//public:
-//	typedef Circle2d Self;
-//
-//	static Length radius(const Self &self)
-//	{
-//		return self.radius();
-//	}
-//
-//	static Point center(const Self &self)
-//	{
-//		return self.center();
-//	}
-//
-//	static Direction axis_direction(const Self &self)
-//	{
-//		return self.axis_direction();
-//	}
-//};
-
-TRAITIMPL(Circle)
-{
-	template<>
+public:
 	static Length radius(const Circle2d &self)
 	{
 		return self.radius();
 	}
 
-	template<>
-	static const Point &center(const Circle2d &self)
+	static Point center(const Circle2d &self)
 	{
 		return self.center();
 	}
 
-	template<>
-	static const Direction &axis_direction(const Circle2d &self)
+	static Direction axis_direction(const Circle2d &self)
 	{
 		return self.axis_direction();
 	}

@@ -3,8 +3,9 @@
 #include "Units.h"
 #include "Point.h"
 
-TRAIT(Projector)
-{
-	template<typename Self>
+template<typename Self>
+class Projector
+{	
+public:
 	static Point calc_projection(const Self &self, const Point &p);
 };
