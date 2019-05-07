@@ -9,29 +9,30 @@
 #include "Projector.h"
 
 //trait Circle:
-template <typename Target>
 class Circle
 {	
-public:
-	typedef Target Self;
-
-	static Length radius(const typename Target::Self &self)
+public:	
+	template<typename Self>
+	static Length radius(const Self &self)
 	{
 		return self.radius();
 	}
 	
-	static const Point &center(const typename Target::Self &self)
+	template<typename Self>
+	static const Point &center(const Self &self)
 	{
 		return self.center();
 	}
 
-	static const Direction &axis_direction(const typename Target::Self &self)
+	template<typename Self>
+	static const Direction &axis_direction(const Self &self)
 	{
 		return self.axis_direction();
 	}
 
 	//impl Projector for Circle<>
-	static Point calc_projection(const typename Target::Self &self, const Point &p)
+	template<typename Self>
+	static Point calc_projection(const Self &self, const Point &p)
 	{
 		auto v0 = p - center(self);
 		auto v1 = v0 - axis_direction(self).value() * Vector::dot(v0, axis_direction(self).value());

@@ -1,23 +1,24 @@
 #pragma once
 
 //trait Line
-template<typename Target>
 class Line
 {
 public:
-	typedef Target Self;
-
-	static const Point &point(const typename Target::Self &self)
+	template<typename Self>
+	static const Point &point(const Self &self)
 	{
 		return self.point();
 	};
-	static const Direction &direction(const typename Target::Self &self)
+
+	template<typename Self>
+	static const Direction &direction(const Self &self)
 	{
 		return self.direction();
 	};
 
 	//impl Projector for Line<>:
-	static Point calc_projection(const typename Target::Self &self, const Point &p)
+	template<typename Self>
+	static Point calc_projection(const Self &self, const Point &p)
 	{
 		auto v0 = p - point(self);
 		auto v1 = direction(self).value() * Vector::dot(v0, direction(self).value());
