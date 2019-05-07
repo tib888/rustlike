@@ -6,6 +6,9 @@
 
 class Circle3d 
 {
+public:
+	typedef Circle3d Self;
+
 	//struct Circle3d:
 private:
 	Length _radius;
@@ -44,7 +47,7 @@ public:
 		return Circle3d(item.radius(), item.center(), item.axis_direction());
 	}
 
-	//readonly property accessors:
+	//impl Circle for Circle3d
 	Length radius() const
 	{
 		return _radius;
@@ -58,21 +61,5 @@ public:
 	const Direction &axis_direction() const
 	{
 		return _axis_direction;
-	}
-
-public:
-	static Length radius(const Circle3d &self)
-	{
-		return self.radius();
-	}
-
-	static const Point &center(const Circle3d &self)
-	{
-		return self.center();
-	}
-
-	static const Direction &axis_direction(const Circle3d &self)
-	{
-		return self.axis_direction();
 	}
 };

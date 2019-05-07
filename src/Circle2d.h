@@ -7,6 +7,9 @@
 
 class Circle2d 
 {
+public:
+	typedef Circle2d Self;
+
 	//struct Circle2d:
 private:
 	Length _radius;
@@ -37,6 +40,7 @@ public:
 		return Circle2d(radius, center);
 	}
 
+	//impl Circle for Circle2d
 	Length radius() const
 	{
 		return _radius;
@@ -50,21 +54,5 @@ public:
 	const Direction &axis_direction() const
 	{
 		return Direction::k_unit;
-	}
-
-public:
-	static Length radius(const Circle2d &self)
-	{
-		return self.radius();
-	}
-
-	static Point center(const Circle2d &self)
-	{
-		return self.center();
-	}
-
-	static Direction axis_direction(const Circle2d &self)
-	{
-		return self.axis_direction();
 	}
 };
