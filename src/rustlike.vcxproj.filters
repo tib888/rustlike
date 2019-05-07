@@ -21,12 +21,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Line.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Circle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -48,13 +42,28 @@
     <ClInclude Include="Circle2d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Projector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Into.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.trait">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Projector.trait">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Line3d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Line.trait">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Option.traitimpl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProjectorForCircle.traitimpl">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -45,25 +45,7 @@ public:
 		return _some;
 	}
 
-	template<typename R>
-	Option<R> map(std::function<R (T)> func)
-	{
-		if (is_some()) 
-		{
-			return Option<R>::Some(func(_content));
-		}
-		return Option<R>::None();
-	}
-
-	template<typename R>
-	Option<R> map_flat(std::function<Option<R>(T)> func)
-	{
-		if (is_some())
-		{
-			return func(_content);
-		}
-		return Option<R>::None();
-	}
+#include "Option.traitimpl"
 };
 
 //template<typename T, std::enable_if_t<std::is_pointer<T>::value>* = 0>
@@ -106,23 +88,5 @@ public:
 //		return _content != static_cast<T>(nullptr);
 //	}
 //
-//	template<typename R>
-//	Option<R> map(std::function<R(T)> func)
-//	{
-//		if (is_some())
-//		{
-//			return Option<R>::Some(func(_content));
-//		}
-//		return Option<R>::None();
-//	}
-//
-//	template<typename R>
-//	Option<R> map_flat(std::function<Option<R>(T)> func)
-//	{
-//		if (is_some())
-//		{
-//			return func(_content);
-//		}
-//		return Option<R>::None();
-//	}
+//	#include "Option.traitimpl"
 //};

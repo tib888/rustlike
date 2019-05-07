@@ -1,9 +1,8 @@
 #pragma once
 
 #include "Option.h"
-
-//use crate::Circle
-#include "Circle.h"
+#include "Point.h"
+#include "Direction.h"
 
 class Circle2d 
 {
@@ -40,19 +39,26 @@ public:
 		return Circle2d(radius, center);
 	}
 
-	//impl Circle for Circle2d
-	Length radius() const
-	{
-		return _radius;
-	}
-
-	const Point &center() const
-	{
-		return _center;
-	}
-
-	const Direction &axis_direction() const
-	{
-		return Direction::k_unit;
-	}
+#include "Circle.trait"
+#include "Projector.trait"
 };
+
+//impl Circle for Circle2d
+Length Circle2d::radius() const
+{
+	return _radius;
+}
+
+const Point &Circle2d::center() const
+{
+	return _center;
+}
+
+const Direction &Circle2d::axis_direction() const
+{
+	return Direction::k_unit;
+}
+
+#define SELF Circle2d 
+#include "ProjectorForCircle.traitimpl"
+#undef SELF

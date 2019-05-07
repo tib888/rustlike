@@ -1,0 +1,4 @@
+public:
+	//trait Projector:
+	Point calc_projection(const Point &p) const;
+

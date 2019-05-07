@@ -1,0 +1,6 @@
+public:
+	//trait Circle
+	Length radius() const;
+	const Point &center() const;
+	const Direction &axis_direction() const;
+		

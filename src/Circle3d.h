@@ -1,10 +1,7 @@
 #pragma once
 #include "Option.h"
 
-//use crate::Circle
-#include "Circle.h"
-
-class Circle3d 
+class Circle3d
 {
 public:
 	typedef Circle3d Self;
@@ -47,19 +44,26 @@ public:
 		return Circle3d(item.radius(), item.center(), item.axis_direction());
 	}
 
-	//impl Circle for Circle3d
-	Length radius() const
-	{
-		return _radius;
-	}
-
-	const Point &center() const
-	{
-		return _center;
-	}
-
-	const Direction &axis_direction() const
-	{
-		return _axis_direction;
-	}
+#include "Circle.trait"
+#include "Projector.trait"
 };
+
+//impl Circle for Circle3d
+Length Circle3d::radius() const
+{
+	return _radius;
+}
+
+const Point &Circle3d::center() const
+{
+	return _center;
+}
+
+const Direction &Circle3d::axis_direction() const
+{
+	return _axis_direction;
+}
+
+#define SELF Circle3d 
+#include "ProjectorForCircle.traitimpl"
+#undef SELF
