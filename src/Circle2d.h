@@ -5,11 +5,9 @@
 #include "Direction.h"
 #include "traits/Circle.h"
 
-class Circle2d 
+class Circle2d : 
+	public Circle<Circle2d>
 {
-public:
-	typedef Circle2d Self;
-
 	//struct Circle2d:
 private:
 	Length _radius;
@@ -39,22 +37,20 @@ public:
 		assert(radius >= 0);
 		return Circle2d(radius, center);
 	};
+	
+	//impl Circle for Circle2d
+	Length radius() const
+	{
+		return _radius;
+	}
 
-	TRAIT_Circle(Circle2d);
+	const Point &center() const
+	{
+		return _center;
+	}
+
+	const Direction &axis_direction() const
+	{
+		return Direction::k_unit;
+	}
 };
-
-//impl Circle for Circle2d
-Length Circle2d::radius() const
-{
-	return _radius;
-}
-
-const Point &Circle2d::center() const
-{
-	return _center;
-}
-
-const Direction &Circle2d::axis_direction() const
-{
-	return Direction::k_unit;
-}

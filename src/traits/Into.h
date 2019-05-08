@@ -1,7 +1,10 @@
-#ifndef TRAIT_Into
-#define TRAIT_Into(Self, T)\
-	static T into()\
-	{\
-		return T::from(item);\
-	}
-#endif //TRAIT_Into
+#pragma once
+
+template<typename Self, typename T>
+class Into
+{
+public:
+	T into() {
+		return SELF->into();
+	};
+};

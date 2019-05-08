@@ -1,4 +1,10 @@
-#ifndef TRAIT_From
-#define TRAIT_From(Self, T)\
-	static Self from(const T &item);
-#endif //TRAIT_From
+#pragma once
+
+template<typename Self, typename T>
+class From
+{
+public:
+	static Self from(const T &item) {
+		return Self::from(item);
+	};
+};

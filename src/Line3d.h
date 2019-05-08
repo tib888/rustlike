@@ -1,14 +1,11 @@
 #pragma once
 
-#include "traits/Line.h"
 #include "Point.h"
 #include "Direction.h"
+#include "traits/Line.h"
 
-class Line3d
+class Line3d : public Line<Line3d>
 {
-public:
-	typedef Line3d Self;
-
 	//struct Line3d:
 private:
 	Point _point;
@@ -27,17 +24,15 @@ public:
 	{
 		return Line3d(point, direction);
 	}
+	
+	//impl Line for Line3d
+	const Point &point() const
+	{
+		return _point;
+	}
 
-	TRAIT_Line(Line3d);
+	const Direction &direction() const
+	{
+		return _direction;
+	}
 };
-		
-//impl Line for Line3d
-const Point &Line3d::point() const
-{
-	return _point;
-}
-
-const Direction &Line3d::direction() const
-{
-	return _direction;
-}

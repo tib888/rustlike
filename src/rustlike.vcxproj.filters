@@ -51,9 +51,6 @@
     <ClInclude Include="Line3d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Option.traitimpl">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="traits\Circle.h">
       <Filter>Header Files\traits</Filter>
     </ClInclude>
