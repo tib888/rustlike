@@ -17,6 +17,7 @@ public:
 		return SELF->direction();
 	}
 
+public:
 	//impl Projector for Line:
 	Point calc_projection(const Point &p) const
 	{

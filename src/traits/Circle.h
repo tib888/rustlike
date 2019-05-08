@@ -23,6 +23,7 @@ public:
 		return SELF->axis_direction();
 	}
 	
+public:
 	//impl Projector for Circle
 	Point calc_projection(const Point &p) const
 	{
