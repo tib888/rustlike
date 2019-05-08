@@ -134,20 +134,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Circle.trait" />
     <ClInclude Include="Circle2d.h" />
     <ClInclude Include="Circle3d.h" />
     <ClInclude Include="Direction.h" />
-    <ClInclude Include="Into.h" />
-    <ClInclude Include="Line.trait" />
     <ClInclude Include="Line3d.h" />
     <ClInclude Include="Option.traitimpl" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="Point.h" />
-    <ClInclude Include="Projector.trait" />
     <ClInclude Include="Result.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="traits\Circle.h" />
+    <ClInclude Include="traits\From.h" />
+    <ClInclude Include="traits\Into.h" />
+    <ClInclude Include="traits\Line.h" />
+    <ClInclude Include="traits\Projector.h" />
     <ClInclude Include="Units.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>

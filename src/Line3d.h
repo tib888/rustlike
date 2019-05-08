@@ -1,4 +1,6 @@
 #pragma once
+
+#include "traits/Line.h"
 #include "Point.h"
 #include "Direction.h"
 
@@ -26,7 +28,7 @@ public:
 		return Line3d(point, direction);
 	}
 
-#include "Line.trait"
+	TRAIT_Line(Line3d);
 };
 		
 //impl Line for Line3d

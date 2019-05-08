@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\traits">
+      <UniqueIdentifier>{c7b5ae80-85a8-49b9-8ad5-d6d3b085940b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -42,26 +45,29 @@
     <ClInclude Include="Circle2d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Into.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Vector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Circle.trait">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Projector.trait">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Line3d.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Line.trait">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Option.traitimpl">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="traits\Circle.h">
+      <Filter>Header Files\traits</Filter>
+    </ClInclude>
+    <ClInclude Include="traits\From.h">
+      <Filter>Header Files\traits</Filter>
+    </ClInclude>
+    <ClInclude Include="traits\Into.h">
+      <Filter>Header Files\traits</Filter>
+    </ClInclude>
+    <ClInclude Include="traits\Line.h">
+      <Filter>Header Files\traits</Filter>
+    </ClInclude>
+    <ClInclude Include="traits\Projector.h">
+      <Filter>Header Files\traits</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

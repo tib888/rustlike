@@ -1,5 +1,7 @@
 #pragma once
 #include "Option.h"
+#include "traits/Circle.h"
+#include "traits/From.h"
 
 class Circle3d
 {
@@ -38,13 +40,8 @@ public:
 		return Circle3d(radius, center, axis_direction);
 	}
 
-	//impl from<Circle2d> for Circle3d:
-	static Circle3d from(const Circle2d &item)
-	{
-		return Circle3d(item.radius(), item.center(), item.axis_direction());
-	}
-
-#include "Circle.trait"
+	TRAIT_Circle(Circle3d);
+	TRAIT_From(Circle3d, Circle2d)
 };
 
 //impl Circle for Circle3d
@@ -61,4 +58,10 @@ const Point &Circle3d::center() const
 const Direction &Circle3d::axis_direction() const
 {
 	return _axis_direction;
+}
+
+//impl from<Circle2d> for Circle3d:
+Circle3d Circle3d::from(const Circle2d &item)
+{
+	return Circle3d(item.radius(), item.center(), item.axis_direction());
 }

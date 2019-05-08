@@ -3,6 +3,7 @@
 #include "Option.h"
 #include "Point.h"
 #include "Direction.h"
+#include "traits/Circle.h"
 
 class Circle2d 
 {
@@ -31,15 +32,15 @@ public:
 		}
 
 		return Option<Circle2d>::None();
-	}
+	};
 
 	static Circle2d unchecked_create(Length radius, Point center)
 	{
 		assert(radius >= 0);
 		return Circle2d(radius, center);
-	}
+	};
 
-#include "Circle.trait"
+	TRAIT_Circle(Circle2d);
 };
 
 //impl Circle for Circle2d
