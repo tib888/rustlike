@@ -1,4 +1,5 @@
 #pragma once
+
 #include <type_traits>
 #include <functional>
 
@@ -24,6 +25,14 @@ private:
 	{
 	};
 
+public:
+	~Option() 
+	{
+		if (is_some()) {
+			_content.~T();
+		}
+	};
+
 	//impl Option
 public:
 	static Option None() 
@@ -46,24 +55,24 @@ public:
 	}
 
 public:
-	template<typename R>
-	Option<R> map(std::function<R(T)> func)
+	template<typename U>
+	Option<U> map(std::function<U(T)> func)
 	{
 		if (is_some())
 		{
-			return Option<R>::Some(func(_content));
+			return Option<U>::Some(func(_content));
 		}
-		return Option<R>::None();
+		return Option<U>::None();
 	}
 
-	template<typename R>
-	Option<R> map_flat(std::function<Option<R>(T)> func)
+	template<typename U>
+	Option<U> and_then(std::function<Option<U>(T)> func)	//= map_flat
 	{
 		if (is_some())
 		{
-			return func(_content);
+			return func(&_content);
 		}
-		return Option<R>::None();
+		return Option<U>::None();
 	}
 };
 

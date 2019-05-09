@@ -66,6 +66,15 @@
     <ClInclude Include="traits\Projector.h">
       <Filter>Header Files\traits</Filter>
     </ClInclude>
+    <ClInclude Include="traits\Centered.h">
+      <Filter>Header Files\traits</Filter>
+    </ClInclude>
+    <ClInclude Include="traits\HasArea.h">
+      <Filter>Header Files\traits</Filter>
+    </ClInclude>
+    <ClInclude Include="traits\Orientable.h">
+      <Filter>Header Files\traits</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

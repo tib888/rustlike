@@ -1,5 +1,4 @@
 #pragma once
-#include "Units.h"
 
 class Vector
 {
@@ -23,14 +22,14 @@ public:
 	{
 		return Vector(x, y, z);
 	}
-
+		
 	Length x() const { return _x; }
 	Length y() const { return _y; }
 	Length z() const { return _z; }
 
 	Length sq_length() const { return _x * _x + _y * _y + _z * _z; }
 	Length length() const { return sqrt(sq_length()); }
-
+	
 	static Length dot(const Vector &lhs, const Vector &rhs)
 	{
 		return lhs._x * rhs._x + lhs._y * rhs._y + lhs._z * rhs._z;
@@ -75,6 +74,8 @@ public:
 			lhs._y / rhs,
 			lhs._z / rhs);
 	}
+
+	Option<Vector> with_length(Length l) const;
 
 	static const Vector zero;
 	static const Vector i_unit;

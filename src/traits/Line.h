@@ -4,7 +4,7 @@
 
 template<typename Self>
 class Line : 
-	public Projector<Line<Self>>
+	public Projector<Self>
 {
 public:
 	//trait Line
@@ -19,10 +19,10 @@ public:
 
 public:
 	//impl Projector for Line:
-	Point calc_projection(const Point &p) const
+	Option<Point> calc_projection(const Point &p) const
 	{
 		auto v0 = p - point();
 		auto v1 = direction().value() * Vector::dot(v0, direction().value());
-		return point() + v1;
+		return Option<Point>::Some(point() + v1);
 	}
 };

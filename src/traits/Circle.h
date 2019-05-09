@@ -1,10 +1,16 @@
 #pragma once
 
+#include "HasArea.h"
 #include "Projector.h"
+#include "Centered.h"
+#include "Direction.h"
 
-template<typename Self> 
+template<typename Self, typename CenterT> 
 class Circle : 
-	public Projector<Circle<Self>>
+	public Centered<Self, CenterT>,
+	public Projector<Self>,
+	public HasArea<Self>
+	//public HasArcLength<Self>,
 {
 public:
 	//trait Circle
@@ -13,22 +19,28 @@ public:
 		return SELF->radius();
 	}
 
-	const Point &center() const
-	{
-		return SELF->center();
-	}
+	//CenterT center() const
+	//{
+	//	return SELF->center();
+	//}
 
-	const Direction &axis_direction() const
+public:
+	//impl HasArea for Circle
+	Area calc_area() const
 	{
-		return SELF->axis_direction();
+		return radius() * radius() * M_PI;
 	}
 	
 public:
 	//impl Projector for Circle
-	Point calc_projection(const Point &p) const
+	Option<Point> calc_projection(const Point &p) const
 	{
-		auto v0 = p - center();
-		auto v1 = v0 - axis_direction().value() * Vector::dot(v0, axis_direction().value());
-		return center() + v1;
+		auto axis = SELF->center();//why __super:: or SELF-> is needed here?
+		const auto v0 = p - axis.point();
+		const auto v1 = v0 - axis.direction().value() * Vector::dot(v0, axis.direction().value());
+		return with_length(v1, radius()).map<Point>([&](const Vector &v)
+		{ 
+			return axis.point() + v; 
+		});
 	};
 };

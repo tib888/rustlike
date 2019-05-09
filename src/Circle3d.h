@@ -1,43 +1,48 @@
 #pragma once
+
 #include <cassert>
+
+#include "Units.h"
 #include "Option.h"
+#include "Point.h"
+#include "Vector.h"
+#include "Direction.h"
+#include "Line3d.h"
 #include "traits/Circle.h"
 #include "traits/From.h"
 
 class Circle3d : 
-	public Circle<Circle3d>, 
+	public Circle<Circle3d, const Line3d &>,
 	public From<Circle3d, Circle2d>
 {
 	//struct Circle3d:
 private:
 	Length _radius;
-	Point _center;
-	Direction _axis_direction;
+	Line3d _center;
 
 private:
-	Circle3d(Length radius, Point center, Direction axis_direction) :
+	Circle3d(Length radius, const Line3d &center) :
 		_radius(radius),
-		_center(center),
-		_axis_direction(axis_direction)
+		_center(center)
 	{
 	};
 
 	//impl Circle3d:
 public:
-	static Option<Circle3d> try_create(Length radius, Point center, Direction axis_direction)
+	static Option<Circle3d> try_create(Length radius, const Line3d &center)
 	{
 		if (radius >= 0)
 		{
-			return Option<Circle3d>::Some(Circle3d(radius, center, axis_direction));
+			return Option<Circle3d>::Some(Circle3d(radius, center));
 		}
 
 		return Option<Circle3d>::None();
 	}
 
-	static Circle3d unchecked_create(Length radius, Point center, Direction axis_direction)
+	static Circle3d unchecked_create(Length radius, const Line3d &center)
 	{
 		assert(radius >= 0);
-		return Circle3d(radius, center, axis_direction);
+		return Circle3d(radius, center);
 	}
 
 	//impl Circle for Circle3d
@@ -46,19 +51,15 @@ public:
 		return _radius;
 	}
 
-	const Point &center() const
+	//impl Centered<const Line3d&> for Circle
+	const Line3d &center() const
 	{
 		return _center;
-	}
-
-	const Direction &axis_direction() const
-	{
-		return _axis_direction;
 	}
 
 	//impl from<Circle2d> for Circle3d:
 	static Circle3d from(const Circle2d &item)
 	{
-		return Circle3d(item.radius(), item.center(), item.axis_direction());
+		return Circle3d(item.radius(), item.center());
 	}
 };

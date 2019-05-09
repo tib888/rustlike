@@ -3,6 +3,7 @@
 typedef double Scalar;
 typedef double Length;
 typedef double Angle;
+typedef double Area;
 
 template<typename T>
 class Unit

@@ -1,8 +1,9 @@
 #pragma once
+
 #include "Units.h"
 #include "Vector.h"
 
-class Point
+class Point 
 {
 	//struct Point
 protected:
@@ -54,6 +55,13 @@ public:
 	}
 
 	static const Point origo;
+
+public:
+	//impl Projector for Point:
+	Option<Point> calc_projection(const Point &p) const
+	{
+		return Option<Point>::Some(*this);
+	}
 };
 
 const Point Point::origo = Point(0, 0, 0);

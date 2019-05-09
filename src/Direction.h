@@ -1,8 +1,8 @@
 #pragma once
+
 #include <math.h>
 #include <cassert>
-#include "Units.h"
-#include "Option.h"
+
 #include "Vector.h"
 
 template<>
@@ -31,6 +31,7 @@ public:
 			auto l = sqrt(l2);
 			return Option<Unit<Vector>>::Some(Unit(value / sqrt(l2)));
 		}
+		return Option<Unit<Vector>>::None();
 	}
 
 	static Unit<Vector> unchecked_create(Scalar x, Scalar y, Scalar z)
@@ -48,6 +49,11 @@ public:
 	{
 		return _value;
 	};
+	
+	Vector with_length(Length l) const
+	{
+		return value() * l;
+	}
 
 	static const Unit<Vector> i_unit;
 	static const Unit<Vector> j_unit;
@@ -59,3 +65,11 @@ const Unit<Vector> Unit<Vector>::j_unit = Unit<Vector>(Vector::create(0, 1, 0));
 const Unit<Vector> Unit<Vector>::k_unit = Unit<Vector>(Vector::create(0, 0, 1));
 
 typedef Unit<Vector> Direction;
+
+Option<Vector> with_length(const Vector &v, Length l)
+{
+	return Unit<Vector>::try_create(v).map<Vector>([&](const auto &d) 
+	{ 
+		return d.value() * l; 
+	});
+}

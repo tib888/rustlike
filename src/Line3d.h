@@ -1,6 +1,9 @@
 #pragma once
 
+#include "Units.h"
+#include "Option.h"
 #include "Point.h"
+#include "Vector.h"
 #include "Direction.h"
 #include "traits/Line.h"
 
